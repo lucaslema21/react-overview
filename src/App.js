@@ -1,7 +1,21 @@
 import logo from './logo.svg';
 import './App.css';
+import { useState } from 'react';
 
 function App() {
+  // let sarasa = 'Qué es React???';
+  const [sarasa, setSarasa] = useState('Qué es React???');
+
+  const updatear = () => {
+    // sarasa = 'Es una libreria de JS';
+    // console.log(sarasa)
+    setSarasa('Es una libreria de JS')
+    console.log(sarasa)
+  }
+
+
+
+
   return (
     <div className="App">
       <header className="App-header">
@@ -15,8 +29,9 @@ function App() {
           target="_blank"
           rel="noopener noreferrer"
         >
-          Learn React
+          {sarasa}
         </a>
+        <button onClick={updatear}>Responder</button>
       </header>
     </div>
   );
