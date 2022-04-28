@@ -1,77 +1,39 @@
+import { useState } from 'react';
 import './App.css';
-import { useReducer, useState } from 'react';
+import Header from './components/Header/Header';
+import Products from './components/Products/Products';
 
 function App() {
 
-  const [email, setEmail] = useState('')
-  const emailReducer = (state, action) => {
-    if (action.type === 'CHANGE_EMAIL_VALUE') {
-      console.log('mi state', state)
-      return { value : action.val }
+  const [isLoggedIn, setIsLoggedIn] = useState(false)
+
+  const [products] = useState([
+    {
+      id: Math.random(),
+      image: 'https://cdn.pixabay.com/photo/2019/05/05/14/02/capybara-4180603_960_720.jpg',
+      name: 'Tito'
+    },
+    {
+      id: Math.random(),
+      image: 'https://www.collinsdictionary.com/images/full/capybara_346252388.jpg',
+      name: 'Roque'
+    },
+    {
+      id: Math.random(),
+      image: 'https://thumbs.dreamstime.com/b/capivara-del-capybara-el-habita-savannas-y-los-bosques-densos-las-vidas-cerca-de-aguas-superficie-es-una-especie-altamente-social-146657384.jpg',
+      name: 'Norberto'
+    },
+    {
+      id: Math.random(),
+      image: 'https://i.pinimg.com/550x/4a/38/95/4a38950759f9054e7e7b11c10036db19.jpg',
+      name: 'Pepe'
     }
-    return {
-      value: ''
-    }
-  }
-  const [emailState, dispatchEmail] = useReducer(emailReducer, {value: ''});
-  // const [name, setName] = useState('')
-  // const [password, setPassword] = useState('')
-
-  const [formData, setFormData] = useState({
-    name: '',
-    password: ''
-  })
-
-  const emailChangeHandler = (e) => {
-    // setEmail(e.currentTarget.value)
-    dispatchEmail({
-      type: 'CHANGE_EMAIL_VALUE',
-      val: e.target.value
-    })
-    // setFormData((prevState) => {
-    //   return {
-    //     ...prevState,
-    //     email: e.target.value
-    //   }
-    // })
-  }
-
-  const nameChangeHandler = (e) => {
-    // setName(e.currentTarget.value)
-    setFormData({
-      ...formData,
-      name: e.target.value
-    })
-  }
-
-  const passwordChangeHandler = (e) => {
-    // setPassword(e.currentTarget.value)
-    setFormData({
-      ...formData,
-      password: e.target.value
-    })
-  }
+  ])
 
   return (
     <div className="App">
-      <form>
-        <div>
-          <label>Email</label>
-          <input type="email" onChange={emailChangeHandler} />
-          {/* <p>Entered email is: {email}</p> */}
-          <p>Entered email is: {emailState.value}</p>
-        </div>
-        <div>
-          <label>Name</label>
-          <input type="text" onChange={nameChangeHandler} />
-          <p>Entered name is: {formData.name}</p>
-        </div>
-        <div>
-          <label>Password</label>
-          <input type="password" onChange={passwordChangeHandler} />
-          <p>Entered password is: {formData.password}</p>
-        </div>
-      </form>
+      <Header isLogged={isLoggedIn} onLoginToggle={(e) => setIsLoggedIn(e)}/>
+      <Products prods={products}/>
     </div>
   );
 }

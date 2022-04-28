@@ -1,0 +1,29 @@
+.Product {
+    display: flex;
+    flex-direction: column;
+    width: 30%;
+    height: 400px;
+    box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+    border-radius: 10px;
+    overflow: hidden;
+    justify-content: space-between;
+}
+.ProductImage {
+    height: 50%;
+    object-fit: cover;
+}
+
+.Button {
+    background: none;
+    outline: none;
+    border: none;
+    background-color: brown;
+    color: white;
+    cursor: pointer;
+    transition: all .3s;
+}
+
+.Button:hover {
+    background: white;
+    color: brown;
+}
