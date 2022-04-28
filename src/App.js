@@ -26,7 +26,7 @@ function App() {
     {
       id: Math.random(),
       image: 'https://i.pinimg.com/550x/4a/38/95/4a38950759f9054e7e7b11c10036db19.jpg',
-      name: 'Pepe'
+      name: 'Pepa Pincho'
     }
   ])
 

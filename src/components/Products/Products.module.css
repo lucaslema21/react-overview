@@ -10,6 +10,6 @@
     .products {
         width: 800px;
         gap: 1em;
-        justify-content: unset;
+        justify-content: space-between;
     }
 }

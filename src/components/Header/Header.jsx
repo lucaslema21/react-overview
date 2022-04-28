@@ -9,8 +9,10 @@ const Header = ({isLogged, onLoginToggle}) => {
 
     return (
         <header className={styles.header}>
-            <h1>Carpincho Store</h1>
-            <button onClick={toggleLoginHandler}>{isLogged ? 'Logout' : 'Login'}</button>
+            <div className={styles.headerContent}>
+                <h1>Carpincho Store</h1>
+                <button className={styles.loginButton} onClick={toggleLoginHandler}>{isLogged ? 'Logout' : 'Login'}</button>
+            </div>
         </header>
     )
 }
