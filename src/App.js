@@ -1,26 +1,39 @@
 import './App.css';
-import { useState } from 'react';
+import { useReducer, useState } from 'react';
 
 function App() {
 
-  // const [email, setEmail] = useState('')
+  const [email, setEmail] = useState('')
+  const emailReducer = (state, action) => {
+    if (action.type === 'CHANGE_EMAIL_VALUE') {
+      console.log('mi state', state)
+      return { value : action.val }
+    }
+    return {
+      value: ''
+    }
+  }
+  const [emailState, dispatchEmail] = useReducer(emailReducer, {value: ''});
   // const [name, setName] = useState('')
   // const [password, setPassword] = useState('')
 
   const [formData, setFormData] = useState({
-    email: '',
     name: '',
     password: ''
   })
 
   const emailChangeHandler = (e) => {
     // setEmail(e.currentTarget.value)
-    setFormData((prevState) => {
-      return {
-        ...prevState,
-        email: e.target.value
-      }
+    dispatchEmail({
+      type: 'CHANGE_EMAIL_VALUE',
+      val: e.target.value
     })
+    // setFormData((prevState) => {
+    //   return {
+    //     ...prevState,
+    //     email: e.target.value
+    //   }
+    // })
   }
 
   const nameChangeHandler = (e) => {
@@ -45,7 +58,8 @@ function App() {
         <div>
           <label>Email</label>
           <input type="email" onChange={emailChangeHandler} />
-          <p>Entered email is: {formData.email}</p>
+          {/* <p>Entered email is: {email}</p> */}
+          <p>Entered email is: {emailState.value}</p>
         </div>
         <div>
           <label>Name</label>
