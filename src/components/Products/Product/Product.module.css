@@ -1,7 +1,7 @@
 .Product {
     display: flex;
     flex-direction: column;
-    width: 30%;
+    width: 50%;
     height: 400px;
     box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
     border-radius: 10px;
@@ -26,4 +26,10 @@
 .Button:hover {
     background: white;
     color: brown;
+}
+
+@media (min-width: 800px) {
+    .Product {
+        width: 30%;
+    }
 }
