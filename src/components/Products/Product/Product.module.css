@@ -1,3 +1,4 @@
+
 .Product {
     display: flex;
     flex-direction: column;
@@ -7,10 +8,21 @@
     border-radius: 10px;
     overflow: hidden;
     justify-content: space-between;
+    position: relative;
 }
 .ProductImage {
     height: 50%;
     object-fit: cover;
+}
+
+.DeleteButton {
+    position: absolute;
+    right: 5px;
+    top: 5px;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
 }
 
 .Button {

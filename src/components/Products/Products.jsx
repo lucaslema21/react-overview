@@ -2,11 +2,11 @@ import React from 'react';
 import Product from './Product/Product';
 import styles from './Products.module.css'
 
-const Products = ({prods}) => {
+const Products = ({prods, isLogged, onDeleteCarpincho}) => {
     return (
         <div className={styles.products}>
             {prods.map(prod => (
-                <Product key={prod.id} prod={prod} />
+                <Product key={prod.id} prod={prod} isLogged={isLogged} onDeleteCarpincho={onDeleteCarpincho} />
             ))}
         </div>
     )

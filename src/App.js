@@ -7,7 +7,7 @@ function App() {
 
   const [isLoggedIn, setIsLoggedIn] = useState(false)
 
-  const [products] = useState([
+  const [products, setProducts] = useState([
     {
       id: Math.random(),
       image: 'https://cdn.pixabay.com/photo/2019/05/05/14/02/capybara-4180603_960_720.jpg',
@@ -30,10 +30,15 @@ function App() {
     }
   ])
 
+  const deleteCarpinchoHandler = (id) => {
+    const filteredProducts = products.filter(prod => prod.id !== id);
+    setProducts(filteredProducts)
+  }
+
   return (
     <div className="App">
       <Header isLogged={isLoggedIn} onLoginToggle={(e) => setIsLoggedIn(e)}/>
-      <Products prods={products}/>
+      <Products prods={products} isLogged={isLoggedIn} onDeleteCarpincho={deleteCarpinchoHandler}/>
     </div>
   );
 }
