@@ -3,14 +3,13 @@ import './App.css';
 import { useState } from 'react';
 
 function App() {
-  // let sarasa = 'Qué es React???';
-  const [sarasa, setSarasa] = useState('Qué es React???');
+  const [mensaje, setMensaje] = useState('Qué es React?');
 
   const updatear = () => {
-    // sarasa = 'Es una libreria de JS';
-    // console.log(sarasa)
-    setSarasa('Es una libreria de JS')
-    console.log(sarasa)
+    // mensaje = 'Es una libreria de JS';
+    // console.log(mensaje)
+    setMensaje('Es una libreria de JS')
+    console.log(mensaje)
   }
 
 
@@ -29,7 +28,7 @@ function App() {
           target="_blank"
           rel="noopener noreferrer"
         >
-          {sarasa}
+          {mensaje}
         </a>
         <button onClick={updatear}>Responder</button>
       </header>
