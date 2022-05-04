@@ -6,7 +6,7 @@ const Products = ({prods, isLogged, onDeleteCarpincho}) => {
     return (
         <div className={styles.products}>
             {prods.map(prod => (
-                <Product key={prod.id} prod={prod} isLogged={isLogged} onDeleteCarpincho={onDeleteCarpincho} />
+                <Product key={prod.id} prod={prod} isLoggedIn={isLogged} onDeleteCarpincho={onDeleteCarpincho} />
             ))}
         </div>
     )
